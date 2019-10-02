@@ -1,0 +1,18 @@
+{
+  "name": "jaimepas",
+  "version": "0.0.1",
+  "description": "youplaboum",
+  "main": "cours_node.js",
+  "scripts": {
+    "start": "node cours_node.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "moi",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0"
+  }
+}
