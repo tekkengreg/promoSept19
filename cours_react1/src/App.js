@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Title from "./Title";
 import Avatar from "./Avatar";
+import Counter from "./Counter";
 
 const bart = {
   image:
@@ -10,12 +11,13 @@ const bart = {
   fname: "Bart",
   lname: "Simpson"
 };
-
 const App = () => {
   const varTest = "tototo";
   const json = { title: "toto", subtitle: "tata" };
   return (
     <div className="App">
+      <Counter title="youpirou" />
+
       <Avatar {...bart} />
       <Avatar image={logo} fname="toto2" lname="tata" />
       <Avatar image={logo} fname="toto3" lname="tata" />
