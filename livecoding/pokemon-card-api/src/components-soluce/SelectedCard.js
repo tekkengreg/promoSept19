@@ -4,7 +4,13 @@ import { Jumbotron, Card, CardImg } from "reactstrap";
 const SelectCard = ({ card }) => (
   <Jumbotron style={{ display: "flex", justifyContent: "center" }}>
     <Card>
-      <CardImg top width="100%" src={card.imageUrl} alt="pokemon card" />
+      <CardImg
+        style={{ height: "100px", width: "auto" }}
+        top
+        width="50%"
+        src={card.imageUrl}
+        alt="pokemon card"
+      />
     </Card>
   </Jumbotron>
 );

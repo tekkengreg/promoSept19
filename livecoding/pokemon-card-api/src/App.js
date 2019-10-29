@@ -3,6 +3,7 @@ import axios from "axios";
 import Gallery from "./components/Gallery";
 import { Container } from "reactstrap";
 import DisplayCard from "./components/DisplayCard";
+import CardProvider, { CardContext } from "./providers/CardContext";
 
 class App extends Component {
   constructor(props) {
@@ -29,12 +30,15 @@ class App extends Component {
   render() {
     console.log(this.state.currentCard);
     return (
-      <Container>
-        {this.state.currentCard >= 0 && (
-          <DisplayCard card={this.state.cards[this.state.currentCard]} />
-        )}
-        <Gallery cards={this.state.cards} selectCard={this.selectCard} />
-      </Container>
+      <CardProvider>
+        <Container>
+          {this.state.currentCard >= 0 && (
+            <DisplayCard card={this.state.cards[this.state.currentCard]} />
+          )}
+          <Gallery cards={this.state.cards} selectCard={this.selectCard} />
+          )}
+        </Container>
+      </CardProvider>
     );
   }
 }

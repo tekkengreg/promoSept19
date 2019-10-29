@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Row, Col, Card, CardImg } from "reactstrap";
+import { withCard, CardContext } from "../providers/CardContext";
 
 const Gallery = props => {
+  const { counter, inc } = useContext(CardContext);
+
   return (
     <Row>
+      <h1 onClick={() => inc(counter + 1)}>{counter}</h1>
       {props.cards.map((card, i) => {
         return (
           <Col
@@ -22,4 +26,5 @@ const Gallery = props => {
   );
 };
 
+// export default withCard(Gallery);
 export default Gallery;
