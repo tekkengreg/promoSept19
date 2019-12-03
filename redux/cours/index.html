@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.1/redux.min.js"></script>
+
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 10vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="message"></div>
+    <button onclick="callDispatch()">Click ME-ssage</button>
+    <script>
+        const { createStore } = Redux;
+        const store = createStore(reducer);
+
+        function reducer(state = { message: 'hello' }, action) {
+            switch (action.type) {
+                case 'UPDATE_MESSAGE':
+                    const { message } = state;
+                    return message.includes(action.message) ? {message:'hello'} : { message: `${message} ${action.message}` }
+
+                default:
+                    return state;
+            }
+        }
+
+        function callDispatch() {
+            store.dispatch({
+                type: 'UPDATE_MESSAGE',
+                message: 'world'
+            })
+        }
+
+        const renderStore = document.getElementById('message');
+        const render = () => {
+            renderStore.innerHTML = store.getState().message;
+        }
+
+        store.subscribe(render);
+        render();
+    </script>
+</body>
+
+</html>

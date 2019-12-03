@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.1/redux.min.js"></script>
+
+    <title>Document</title>
+
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 10vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='message'></div>
+    <input id='input' onchange='callDispatch()' type='text' />
+    <script>
+        const { createStore } = Redux;
+        const store = createStore(reducer)
+
+        document.getElementById('input').addEventListener('input', event => {
+            store.dispatch({
+                type: 'UPDATE_MESSAGE',
+                message: event.target.value
+            })
+        })
+
+
+        function reducer(state = { message: 'hello' }, action) {
+            switch (action.type) {
+                case 'UPDATE_MESSAGE':
+                    let newState = {}
+                    let { message } = state;
+                console.log(message,action.message ,message +action.message)
+                    message.includes(action.message) ? message : message +=action.message;
+                    newState = { message }
+                    return newState;
+
+                default:
+                    return state;
+            }
+        }
+
+        function render() {
+            const messageDOM = document.getElementById('message')
+            messageDOM.innerHTML = store.getState().message
+        }
+
+        store.subscribe(render)
+        render()
+    </script>
+</body>
+
+</html>
