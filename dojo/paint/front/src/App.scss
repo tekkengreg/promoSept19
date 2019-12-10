@@ -1,0 +1,55 @@
+.App {
+  .title {
+    position: absolute;
+    height: 2vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background: #8c8b8b;
+    color: white;
+    text-align: center;
+  }
+  .main {
+    position: absolute;
+    height: 98vh;
+    width: 80vw;
+    top: 2vh;
+    left: 0;
+  }
+  .tools {
+    position: absolute;
+    height: 98vh;
+    width: 20vw;
+    top: 2vh;
+    right: 0;
+    background: rgb(197, 197, 197);
+    .shapes {
+      height: 50%;
+      width: 100%;
+      border: 1px solid #aaaaaa;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      .shape {
+        width: 100px;
+        height: 100px;
+      }
+    }
+    .colors {
+      height: 50%;
+      width: 100%;
+      border: 1px solid #aaaaaa;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      .color {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+}
