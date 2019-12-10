@@ -57,7 +57,7 @@ app.post("/paints/:id/cshapes", (req, res) => {
   function (error, result, fields) {
     console.log(error, result)
     if (error) res.status(500).send(error);
-    res.json(result);
+    else res.json(result);
   });
 });
 
@@ -71,7 +71,7 @@ app.put("/paints/:id/cshapes/:sid", (req, res) => {
   function (error, result, fields) {
     console.log(error, result)
     if (error) res.status(500).send(error);
-    res.json(result);
+    else res.json(result);
   });
 });
 
@@ -81,7 +81,7 @@ app.get("/paints", (req, res) => {
     console.log(error, results)
     
     if (error) res.status(500).send(error);
-    res.json(results);
+    else res.json(results);
   });
 });
 
@@ -92,7 +92,7 @@ app.get("/paints/:id", (req, res) => {
   WHERE d.id=?`, [req.params.id], function (error, results, fields) {
     console.log(error, results)
     if (error) res.status(500).send(error);
-    res.json(results);
+    else res.json(results);
   });
 });
 
@@ -105,7 +105,7 @@ app.get("/paints/:id", (req, res) => {
   WHERE d.id=?`, [req.params.id], function (error, results, fields) {
     console.log(error, results)
     if (error) res.status(500).send(error);
-    res.json(results);
+    else res.json(results);
   });
 });
 

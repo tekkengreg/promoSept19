@@ -6,13 +6,31 @@ export const SvgContainer = props => <svg style={{ height: '100%', width: '100%'
     {props.children}
 </svg>
 
-// export const Square = ({ x, y, s, color }) => <rect x={x - refScale / 2} y={y - refScale / 2} width={refScale * s} height={refScale * s} fill={color ? color.code : "#aaa"} />
-// export const Circle = ({ x, y, s, color }) => <circle cx={x} cy={y} r={s * refScale / 2} fill={color ? color.code : "#aaa"} />
+export const Square = ({ x, y, s, color, onClick }) => <rect
+    x={-refScale / 2}
+    y={-refScale / 2}
+    width={refScale}
+    height={refScale}
+    transform={`translate(${x} ${y}) scale(${s})`}
+    fill={color ? color.code : "#aaa"}
+    onClick={onClick}
+/>
 
+export const Circle = ({ x, y, s, color, onClick }) => <circle
+    cx={0}
+    cy={0}
+    r={refScale / 2}
+    transform={`translate(${x} ${y}) scale(${s})`}
+    fill={color ? color.code : "#aaa"}
+    onClick={onClick}
+/>
 
-export const Square = ({ x, y, s, color , onClick}) => <rect x={-refScale / 2} y={-refScale / 2} width={refScale } height={refScale } transform={`translate(${x} ${y}) scale(${s})`} fill={color ? color.code : "#aaa"} onClick={onClick}/>
-export const Circle = ({ x, y, s, color, onClick }) => <circle cx={0} cy={0} r={refScale / 2} transform={`translate(${x} ${y}) scale(${s})`}  fill={color ? color.code : "#aaa"} onClick={onClick}/>
-export const Triangle = ({ x, y, s, color , onClick}) => <polygon transform={`translate(${x} ${y}) scale(${s})`} points="0 -35, 50 50, -50 50" fill={color ? color.code : "#aaa"} onClick={onClick}/>
+export const Triangle = ({ x, y, s, color, onClick }) => <polygon
+    transform={`translate(${x} ${y}) scale(${s})`}
+    points="0 -35, 50 50, -50 50"
+    fill={color ? color.code : "#aaa"}
+    onClick={onClick}
+/>
 
 export const getShape = (shape, props) => {
     console.log(shape, props)
