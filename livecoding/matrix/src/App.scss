@@ -1,0 +1,29 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  background-color: white;
+  overflow: hidden;
+
+  h1{
+    color: darkgray;
+    position: fixed;
+    text-align: center;
+  }
+
+  .Column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    .Cell {
+      line-height: normal;
+      font-family: Noto Sans;
+      color: grey;
+      width: 1em;
+    }
+  }
+}
+
