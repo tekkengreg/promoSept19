@@ -1,3 +1,4 @@
+const fs = require('fs');
 const express = require("express");
 const sqlite = require("sqlite3");
 const db = new sqlite.Database("./dblive/test.db");
@@ -33,7 +34,7 @@ const httpsoptions = {
   ca: fs.readFileSync("/etc/letsencrypt/live/wilder2.greenterroir.com/chain.pem"),
 }
 const httpsServer = https.createServer(httpsoptions, app);
-httpsServer.listen(server.https, () => {
+httpsServer.listen(443, () => {
   console.log(`https server listen on port ${httpsServer.address().port}`);
 });
-}
+
