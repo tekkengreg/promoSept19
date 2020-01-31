@@ -10,6 +10,7 @@ app.use(({ method, originalUrl }, res, next) => {
   console.log(`${method} ${originalUrl}`);
   next();
 });
+app.use('/', express.static('/home/wilder/promoSept19/livecoding/matrix/build'));
 
 app.get("/", (req, res) => res.send("hello world"));
 app.post("/", (req, res) => res.send(req.body.hello));
@@ -23,4 +24,4 @@ app.get("/players", (req, res) => {
   });
 });
 
-app.listen(5000, () => console.log("server running on 5000"));
+app.listen(80, () => console.log("server running on 5000"));
