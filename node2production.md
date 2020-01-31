@@ -1,3 +1,9 @@
+# DEPLOIEMENT
+
+le deploiment est fait sur les projets :
+- back : livecoding/backend
+- front : livecoding/matrix
+
 # PART 1 : HTTP
 
 ## connexion au vps
