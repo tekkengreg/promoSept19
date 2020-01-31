@@ -76,3 +76,51 @@ npm run build
 
 > tester l'accès à l'application sur `http://9.9.9.9`
 
+# PART 2 : HTTPS
+
+## update server
+
+```js
+const httpsoptions = {
+  key: fs.readFileSync("/etc/letsencrypt/live/wilder2.greenterroir.com/privkey.pem"),
+  cert: fs.readFileSync("/etc/letsencrypt/live/wilder2.greenterroir.com/cert.pem"),
+  ca: fs.readFileSync("/etc/letsencrypt/live/wilder2.greenterroir.com/chain.pem"),
+}
+const httpsServer = https.createServer(httpsoptions, app);
+httpsServer.listen(443, () => {
+  console.log(`https server listen on port ${httpsServer.address().port}`);
+});
+```
+
+## install certbot
+
+```
+apt install certbot
+```
+
+## generate certifcat
+
+stop living server
+
+```sh
+pm2 stop 0
+```
+
+generate certficat with certbot
+
+```sh
+certbot certonly --standalone -d wilder.google.com
+pm2 start 0
+```
+
+## renew certificat
+
+automation of renewal
+
+> be aware that let's encrypt certicates have 90 days time to live
+
+```sh
+pm2 stop 0
+certbot renew --force-renewal
+pm2 start 0
+```
