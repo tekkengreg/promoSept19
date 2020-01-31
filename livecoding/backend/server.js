@@ -27,17 +27,13 @@ app.get("/players", (req, res) => {
 
 app.listen(80, () => console.log("server running on 5000"));
 
-const key = "/etc/letsencrypt/live/wilder2.greenterroir.com/privkey.pem",
-const cert = "/etc/letsencrypt/live/wilder2.greenterroir.com/cert.pem",
-const chain = "/etc/letsencrypt/live/wilder2.greenterroir.com/chain.pem"
-if (server.https) {
-  const httpsoptions = {
-    key: fs.readFileSync(server.key),
-    cert: fs.readFileSync(server.cert),
-    ca: fs.readFileSync(server.chain),
-  };
-  const httpsServer = https.createServer(httpsoptions, app);
-  httpsServer.listen(server.https, () => {
-    console.log(`https server listen on port ${httpsServer.address().port}`);
-  });
+const httpsoptions = {
+  key: fs.readFileSync("/etc/letsencrypt/live/wilder2.greenterroir.com/privkey.pem"),
+  cert: fs.readFileSync("/etc/letsencrypt/live/wilder2.greenterroir.com/cert.pem"),
+  ca: fs.readFileSync("/etc/letsencrypt/live/wilder2.greenterroir.com/chain.pem"),
+}
+const httpsServer = https.createServer(httpsoptions, app);
+httpsServer.listen(server.https, () => {
+  console.log(`https server listen on port ${httpsServer.address().port}`);
+});
 }
