@@ -124,3 +124,7 @@ pm2 stop 0
 certbot renew --force-renewal
 pm2 start 0
 ```
+
+# PART 3
+
+## automatisation dump sql et renew certificat
