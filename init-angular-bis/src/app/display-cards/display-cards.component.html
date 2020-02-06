@@ -1,0 +1,14 @@
+<p>Pokemon</p>
+<form class="example-form" >
+    <mat-form-field style="width: 100%;">
+        <input matInput placeholder="Entrer votre recherche" name='filter' [(ngModel)]="filter" >
+    </mat-form-field>
+</form>
+
+<div class="card-container">
+    <mat-card class="card" *ngFor="let c of getFilteredCards()">
+        <img class="card-img" src="{{c.imageUrl}}" (click)="cardsService.selectCard(c.id)" [ngStyle]="{
+            border: isSelected(cardsService.selectedCards,c.id)? '5px solid red' : 'none'
+          }" />
+    </mat-card>
+</div>

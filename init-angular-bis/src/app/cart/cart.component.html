@@ -1,0 +1,7 @@
+<p>Cart</p>
+
+<div class="card-container">
+    <mat-card class="card" *ngFor="let c of cardsService.selectedCards">
+        <img class="card-img" src="{{getImageUrl(c)}}" (click)="cardsService.selectCard(c)" />
+    </mat-card>
+</div>
